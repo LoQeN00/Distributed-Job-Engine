@@ -3,17 +3,33 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "generate-proto-types-linux": "npx protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./types ./proto/*.proto --ts_proto_opt=nestJs=true",
+    "generate-ts-proto": "npx protoc --plugin=protoc-gen-ts_proto=.\\node_modules\\.bin\\protoc-gen-ts_proto.cmd --ts_proto_out=./types ./proto/*.proto --ts_proto_opt=nestJs=true"
+  },
+  "nx": {
+    "targets": {
+      "generate-ts-proto": {
+        "cache": true,
+        "inputs": [
+          "{workspaceRoot}/proto/*.proto"
+        ]
+      }
+    }
   },
   "private": true,
   "dependencies": {
     "@apollo/server": "^4.11.3",
+    "@golevelup/nestjs-discovery": "^4.0.2",
+    "@grpc/grpc-js": "^1.12.5",
+    "@grpc/proto-loader": "^0.7.13",
     "@nestjs/apollo": "^12.2.2",
     "@nestjs/common": "^10.0.2",
     "@nestjs/config": "^3.3.0",
     "@nestjs/core": "^10.0.2",
     "@nestjs/graphql": "^12.2.2",
     "@nestjs/jwt": "^10.2.0",
+    "@nestjs/microservices": "^10.4.15",
     "@nestjs/passport": "^10.0.3",
     "@nestjs/platform-express": "^10.0.2",
     "@prisma/client": "^6.1.0",
@@ -26,7 +42,8 @@
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.0"
+    "rxjs": "^7.8.0",
+    "ts-proto": "^2.6.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
