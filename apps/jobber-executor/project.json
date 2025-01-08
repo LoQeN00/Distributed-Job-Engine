@@ -1,7 +1,7 @@
 {
-  "name": "jobber-jobs",
+  "name": "jobber-executor",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/jobber-jobs/src",
+  "sourceRoot": "apps/jobber-executor/src",
   "projectType": "application",
   "tags": [],
   "targets": {
@@ -11,7 +11,6 @@
         "command": "webpack-cli build",
         "args": ["node-env=production"]
       },
-
       "configurations": {
         "development": {
           "args": ["node-env=development"]
@@ -23,15 +22,15 @@
       "defaultConfiguration": "development",
       "dependsOn": ["build"],
       "options": {
-        "buildTarget": "jobber-jobs:build",
+        "buildTarget": "jobber-executor:build",
         "runBuildTargetDependencies": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "jobber-jobs:build:development"
+          "buildTarget": "jobber-executor:build:development"
         },
         "production": {
-          "buildTarget": "jobber-jobs:build:production"
+          "buildTarget": "jobber-executor:build:production"
         }
       }
     },

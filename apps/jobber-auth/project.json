@@ -12,6 +12,7 @@
         "command": "webpack-cli build",
         "args": ["node-env=production"]
       },
+      "cache": false,
       "configurations": {
         "development": {
           "args": ["node-env=development"]

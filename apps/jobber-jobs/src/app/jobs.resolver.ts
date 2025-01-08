@@ -1,9 +1,9 @@
-import { JobsService } from './jobs.service';
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { Job } from './models/job.model';
 import { ExecuteJobInput } from './dto/execute-job.input';
 import { UseGuards } from '@nestjs/common';
 import { GqlAuthGuard } from '@jobber/nestjs';
+import { JobsService } from './jobs.service';
 
 @Resolver(() => Job)
 export class JobsResolver {
@@ -16,6 +16,7 @@ export class JobsResolver {
   }
 
   @Mutation(() => Job)
+  @UseGuards(GqlAuthGuard)
   async executeJob(@Args('executeJobInput') executeJobInput: ExecuteJobInput) {
     return this.jobsService.executeJob(executeJobInput.name);
   }
