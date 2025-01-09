@@ -1,6 +1,6 @@
 import { PulsarModule } from '@jobber/pulsar';
 import { Module } from '@nestjs/common';
-import { FibbonaciConsumer } from './fibbonaci/fibbonaci.consumer';
+import { FibbonaciConsumer } from './fibbonaci/fibonacci.consumer';
 
 @Module({
   imports: [PulsarModule],
