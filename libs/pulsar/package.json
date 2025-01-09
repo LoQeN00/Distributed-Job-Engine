@@ -1,0 +1,8 @@
+{
+  "name": "@jobber/pulsar",
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "pulsar-client": "^1.12.0"
+  }
+}
