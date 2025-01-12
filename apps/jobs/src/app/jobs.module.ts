@@ -1,4 +1,4 @@
-import { AUTH_PACKAGE_NAME } from 'types/proto/auth';
+import { AUTH_PACKAGE_NAME } from '@jobber/grpc';
 import { Module } from '@nestjs/common';
 import { DiscoveryModule } from '@golevelup/nestjs-discovery';
 import { FibbonaciJob } from './jobs/fibbonaci/fibbonaci.job';
