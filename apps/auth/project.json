@@ -6,7 +6,7 @@
   "tags": [],
   "targets": {
     "build": {
-      "dependsOn": ["generate-types", "generate-ts-proto"],
+      "dependsOn": ["generate-types", "^build"],
       "executor": "nx:run-commands",
       "options": {
         "command": "webpack-cli build",
@@ -49,9 +49,6 @@
       "options": {
         "cwd": "{projectRoot}"
       }
-    },
-    "generate-ts-proto": {
-      "command": "nx generate-ts-proto"
     },
     "test": {
       "dependsOn": ["generate-types"],
